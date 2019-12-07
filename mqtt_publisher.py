@@ -1,18 +1,15 @@
 import paho.mqtt.publish as publish
 
-def send_data(message):
-    publish.single("testChannel/topic", message, hostname = "test.mosquitto.org")
+message = ""
+def send_data(_message):
+    publish.single("testChannel/topic", _message, hostname = "test.mosquitto.org")
     
-# MQTT_SERVER = "192.168.0.37"
 '''
 while message != "cancel":
     message = input("Enter message: ")
-    publish.single("testChannel/topic", message, hostname = "test.mosquitto.org")
+    send_data(message)
 '''
 send_data("Hello World!")
+send_data("Message sent from another device to the Rasp Pi via Internet and MQTT communication")
 send_data("False")
-# publish.single(MQTT_PATH, "Hello World!", hostname = MQTT_SERVER)
-# publish.single("testChannel/test", "Hello", hostname = "test.mosquitto.org")
-
-
 print("Done")
