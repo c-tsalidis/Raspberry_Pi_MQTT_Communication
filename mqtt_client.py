@@ -3,7 +3,8 @@ from gpiozero import LED
 from time import sleep
 import RPi.GPIO as GPIO
 
-led = LED(14)
+green_led = LED(14)
+red_led = LED(15)
 ledOn = True
 run = True
 
@@ -32,20 +33,18 @@ def on_message(client, userdata, msg):
         if (messageReceived == "on"):
             print("on")
             ledOn = True
-            # GPIO.output(14, GPIO.HIGH)
-            # update_pins()
-            led.on()
+            green_led.on()
+            red_led.off()
         elif (messageReceived == "off"):
             print("off")
             ledOn = False
-            # update_pins()
-            # GPIO.output(14, GPIO.LOW)
-            led.off()
+            green_led.off()
+            red_led.on()
         else:
             ledOn = False
-            # GPIO.output(14, GPIO.LOW)
-            print("neither, so off")
-            led.off()
+            print("neither, so turning both LED'soff")
+            green_led.off()
+            red_led.off()
     else:
         run = False
         ledOn = False
