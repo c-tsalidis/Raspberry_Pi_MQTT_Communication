@@ -9,7 +9,4 @@ while message != "cancel":
     message = input("Enter message: ")
     send_data(message)
 
-# send_data("Hello World!")
-# send_data("Message sent from another device to the Rasp Pi via Internet and MQTT communication")
-# send_data("False")
 print("Done")
